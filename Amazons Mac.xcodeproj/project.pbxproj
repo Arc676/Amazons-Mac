@@ -1,0 +1,353 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		71FCEAE62270EAA800717E3F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 71FCEAE52270EAA800717E3F /* AppDelegate.m */; };
+		71FCEAE92270EAA800717E3F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71FCEAE82270EAA800717E3F /* ViewController.m */; };
+		71FCEAEB2270EAB100717E3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71FCEAEA2270EAB100717E3F /* Assets.xcassets */; };
+		71FCEAEE2270EAB100717E3F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71FCEAEC2270EAB100717E3F /* Main.storyboard */; };
+		71FCEAF12270EAB100717E3F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 71FCEAF02270EAB100717E3F /* main.m */; };
+		71FCEAFA2270EB1800717E3F /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 71FCEAF92270EB1800717E3F /* LICENSE */; };
+		71FCEAFC2270EB2200717E3F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 71FCEAFB2270EB2200717E3F /* README.md */; };
+		71FCEAFE2270EB8100717E3F /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 71FCEAFD2270EB8100717E3F /* Credits.rtf */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		71FCEAE12270EAA800717E3F /* Amazons Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Amazons Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		71FCEAE42270EAA800717E3F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		71FCEAE52270EAA800717E3F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		71FCEAE72270EAA800717E3F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		71FCEAE82270EAA800717E3F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		71FCEAEA2270EAB100717E3F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		71FCEAED2270EAB100717E3F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		71FCEAEF2270EAB100717E3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71FCEAF02270EAB100717E3F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		71FCEAF22270EAB100717E3F /* Amazons_Mac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Amazons_Mac.entitlements; sourceTree = "<group>"; };
+		71FCEAF92270EB1800717E3F /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		71FCEAFB2270EB2200717E3F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		71FCEAFD2270EB8100717E3F /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		71FCEADE2270EAA800717E3F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		71FCEAD82270EAA800717E3F = {
+			isa = PBXGroup;
+			children = (
+				71FCEAF82270EAF600717E3F /* Meta */,
+				71FCEAE32270EAA800717E3F /* Amazons Mac */,
+				71FCEAE22270EAA800717E3F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		71FCEAE22270EAA800717E3F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				71FCEAE12270EAA800717E3F /* Amazons Mac.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		71FCEAE32270EAA800717E3F /* Amazons Mac */ = {
+			isa = PBXGroup;
+			children = (
+				71FCEAFD2270EB8100717E3F /* Credits.rtf */,
+				71FCEAE42270EAA800717E3F /* AppDelegate.h */,
+				71FCEAE52270EAA800717E3F /* AppDelegate.m */,
+				71FCEAE72270EAA800717E3F /* ViewController.h */,
+				71FCEAE82270EAA800717E3F /* ViewController.m */,
+				71FCEAEA2270EAB100717E3F /* Assets.xcassets */,
+				71FCEAEC2270EAB100717E3F /* Main.storyboard */,
+				71FCEAEF2270EAB100717E3F /* Info.plist */,
+				71FCEAF02270EAB100717E3F /* main.m */,
+				71FCEAF22270EAB100717E3F /* Amazons_Mac.entitlements */,
+			);
+			path = "Amazons Mac";
+			sourceTree = "<group>";
+		};
+		71FCEAF82270EAF600717E3F /* Meta */ = {
+			isa = PBXGroup;
+			children = (
+				71FCEAF92270EB1800717E3F /* LICENSE */,
+				71FCEAFB2270EB2200717E3F /* README.md */,
+			);
+			name = Meta;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		71FCEAE02270EAA800717E3F /* Amazons Mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 71FCEAF52270EAB100717E3F /* Build configuration list for PBXNativeTarget "Amazons Mac" */;
+			buildPhases = (
+				71FCEADD2270EAA800717E3F /* Sources */,
+				71FCEADE2270EAA800717E3F /* Frameworks */,
+				71FCEADF2270EAA800717E3F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Amazons Mac";
+			productName = "Amazons Mac";
+			productReference = 71FCEAE12270EAA800717E3F /* Amazons Mac.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		71FCEAD92270EAA800717E3F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = Arc676;
+				TargetAttributes = {
+					71FCEAE02270EAA800717E3F = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = 71FCEADC2270EAA800717E3F /* Build configuration list for PBXProject "Amazons Mac" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 71FCEAD82270EAA800717E3F;
+			productRefGroup = 71FCEAE22270EAA800717E3F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				71FCEAE02270EAA800717E3F /* Amazons Mac */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		71FCEADF2270EAA800717E3F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71FCEAFE2270EB8100717E3F /* Credits.rtf in Resources */,
+				71FCEAFA2270EB1800717E3F /* LICENSE in Resources */,
+				71FCEAEB2270EAB100717E3F /* Assets.xcassets in Resources */,
+				71FCEAFC2270EB2200717E3F /* README.md in Resources */,
+				71FCEAEE2270EAB100717E3F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		71FCEADD2270EAA800717E3F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71FCEAE92270EAA800717E3F /* ViewController.m in Sources */,
+				71FCEAF12270EAB100717E3F /* main.m in Sources */,
+				71FCEAE62270EAA800717E3F /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		71FCEAEC2270EAB100717E3F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				71FCEAED2270EAB100717E3F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		71FCEAF32270EAB100717E3F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		71FCEAF42270EAB100717E3F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		71FCEAF62270EAB100717E3F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Amazons Mac/Amazons_Mac.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = T42F23M422;
+				INFOPLIST_FILE = "Amazons Mac/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Arc676.Amazons-Mac";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		71FCEAF72270EAB100717E3F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Amazons Mac/Amazons_Mac.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = T42F23M422;
+				INFOPLIST_FILE = "Amazons Mac/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Arc676.Amazons-Mac";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		71FCEADC2270EAA800717E3F /* Build configuration list for PBXProject "Amazons Mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71FCEAF32270EAB100717E3F /* Debug */,
+				71FCEAF42270EAB100717E3F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		71FCEAF52270EAB100717E3F /* Build configuration list for PBXNativeTarget "Amazons Mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71FCEAF62270EAB100717E3F /* Debug */,
+				71FCEAF72270EAB100717E3F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 71FCEAD92270EAA800717E3F /* Project object */;
+}
