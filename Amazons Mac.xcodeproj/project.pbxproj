@@ -16,7 +16,7 @@
 		71FCEAFC2270EB2200717E3F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 71FCEAFB2270EB2200717E3F /* README.md */; };
 		71FCEAFE2270EB8100717E3F /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 71FCEAFD2270EB8100717E3F /* Credits.rtf */; };
 		71FCEB022270EC4200717E3F /* libamazons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71FCEB012270EC4200717E3F /* libamazons.a */; };
-		71FCEB062270EC6600717E3F /* GameView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 71FCEB052270EC6600717E3F /* GameView.mm */; };
+		71FCEB062270EC6600717E3F /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71FCEB052270EC6600717E3F /* GameView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +36,7 @@
 		71FCEB012270EC4200717E3F /* libamazons.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libamazons.a; sourceTree = "<group>"; };
 		71FCEB032270EC4500717E3F /* libamazons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libamazons.h; sourceTree = "<group>"; };
 		71FCEB042270EC6600717E3F /* GameView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameView.h; sourceTree = "<group>"; };
-		71FCEB052270EC6600717E3F /* GameView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = GameView.mm; sourceTree = "<group>"; };
+		71FCEB052270EC6600717E3F /* GameView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +84,7 @@
 				71FCEAF02270EAB100717E3F /* main.m */,
 				71FCEAF22270EAB100717E3F /* Amazons_Mac.entitlements */,
 				71FCEB042270EC6600717E3F /* GameView.h */,
-				71FCEB052270EC6600717E3F /* GameView.mm */,
+				71FCEB052270EC6600717E3F /* GameView.m */,
 			);
 			path = "Amazons Mac";
 			sourceTree = "<group>";
@@ -188,7 +188,7 @@
 			files = (
 				71FCEAE92270EAA800717E3F /* ViewController.m in Sources */,
 				71FCEAF12270EAB100717E3F /* main.m in Sources */,
-				71FCEB062270EC6600717E3F /* GameView.mm in Sources */,
+				71FCEB062270EC6600717E3F /* GameView.m in Sources */,
 				71FCEAE62270EAA800717E3F /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

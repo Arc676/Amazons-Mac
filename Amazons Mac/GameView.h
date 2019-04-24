@@ -23,10 +23,11 @@
 
 #include "libamazons.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface GameView : NSView
 
-@end
+@property (assign) BoardState board;
+@property (assign) SquareState currentPlayer;
+@property (assign) Square src, dst, shot;
+@property (assign) int clickedSquare;
 
-NS_ASSUME_NONNULL_END
+@end
