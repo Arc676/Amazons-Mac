@@ -17,6 +17,9 @@
 		71FCEAFE2270EB8100717E3F /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 71FCEAFD2270EB8100717E3F /* Credits.rtf */; };
 		71FCEB022270EC4200717E3F /* libamazons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71FCEB012270EC4200717E3F /* libamazons.a */; };
 		71FCEB062270EC6600717E3F /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71FCEB052270EC6600717E3F /* GameView.m */; };
+		71FCEB0B2270FEB400717E3F /* P2.png in Resources */ = {isa = PBXBuildFile; fileRef = 71FCEB092270FEB400717E3F /* P2.png */; };
+		71FCEB0C2270FEB400717E3F /* P1.png in Resources */ = {isa = PBXBuildFile; fileRef = 71FCEB0A2270FEB400717E3F /* P1.png */; };
+		71FCEB0E2270FFA500717E3F /* Occupied.png in Resources */ = {isa = PBXBuildFile; fileRef = 71FCEB0D2270FFA500717E3F /* Occupied.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +40,9 @@
 		71FCEB032270EC4500717E3F /* libamazons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libamazons.h; sourceTree = "<group>"; };
 		71FCEB042270EC6600717E3F /* GameView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameView.h; sourceTree = "<group>"; };
 		71FCEB052270EC6600717E3F /* GameView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameView.m; sourceTree = "<group>"; };
+		71FCEB092270FEB400717E3F /* P2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = P2.png; sourceTree = "<group>"; };
+		71FCEB0A2270FEB400717E3F /* P1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = P1.png; sourceTree = "<group>"; };
+		71FCEB0D2270FFA500717E3F /* Occupied.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Occupied.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +60,7 @@
 		71FCEAD82270EAA800717E3F = {
 			isa = PBXGroup;
 			children = (
+				71FCEB072270FA1900717E3F /* Assets */,
 				71FCEB002270EC3900717E3F /* lib */,
 				71FCEAFF2270EC2A00717E3F /* inc */,
 				71FCEAF82270EAF600717E3F /* Meta */,
@@ -114,6 +121,24 @@
 			path = lib;
 			sourceTree = "<group>";
 		};
+		71FCEB072270FA1900717E3F /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				71FCEB082270FA2200717E3F /* Sprites */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		71FCEB082270FA2200717E3F /* Sprites */ = {
+			isa = PBXGroup;
+			children = (
+				71FCEB0D2270FFA500717E3F /* Occupied.png */,
+				71FCEB0A2270FEB400717E3F /* P1.png */,
+				71FCEB092270FEB400717E3F /* P2.png */,
+			);
+			path = Sprites;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -172,6 +197,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				71FCEAFE2270EB8100717E3F /* Credits.rtf in Resources */,
+				71FCEB0B2270FEB400717E3F /* P2.png in Resources */,
+				71FCEB0C2270FEB400717E3F /* P1.png in Resources */,
+				71FCEB0E2270FFA500717E3F /* Occupied.png in Resources */,
 				71FCEAFA2270EB1800717E3F /* LICENSE in Resources */,
 				71FCEAEB2270EAB100717E3F /* Assets.xcassets in Resources */,
 				71FCEAFC2270EB2200717E3F /* README.md in Resources */,

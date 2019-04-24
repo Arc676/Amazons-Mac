@@ -4,4 +4,4 @@ A Cocoa frontend for Game of the Amazons using the [Amazons library](https://git
 
 ## Licensing
 
-Project available under GPLv3. See `LICENSE` for full license text.
+Project available under GPLv3. See `LICENSE` for full license text. See `Credits.rtf` for more details regarding game assets.

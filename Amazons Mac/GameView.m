@@ -32,6 +32,9 @@
 	};
 	boardstate_init(&_board, 4, 4, 10, 10, wpos, bpos);
 	self.clickedSquare = 0;
+	self.whitePlayer = [NSImage imageNamed:@"P1.png"];
+	self.blackPlayer = [NSImage imageNamed:@"P2.png"];
+	self.occupied = [NSImage imageNamed:@"Occupied.png"];
 }
 
 - (BOOL)acceptsFirstMouse:(NSEvent *)event {
@@ -47,25 +50,41 @@
 	NSRectFill(rect);
 	for (int x = 0; x < self.board.boardWidth; x++) {
 		for (int y = 0; y < self.board.boardHeight; y++) {
-			if (x + y % 2 == 0) {
+			NSRect square = NSMakeRect(MARGIN + x * TILE_SIZE, MARGIN + y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+			if ((x + y) % 2 == 0) {
 				[[NSColor grayColor] set];
-				NSRectFill(NSMakeRect(20 + x * 20, 20 + y * 20, 20, 20));
+				NSRectFill(square);
 			}
 			switch (self.board.board[x * self.board.boardWidth + y]) {
 				case WHITE:
+					[self.whitePlayer drawInRect:square];
+					break;
 				case BLACK:
+					[self.blackPlayer drawInRect:square];
+					break;
 				case ARROW:
+					[self.occupied drawInRect:square];
+					break;
 				case EMPTY:
 				default:
 					break;
 			}
 		}
 	}
+	[[NSColor greenColor] set];
+	switch (self.clickedSquare) {
+		case 2:
+			NSRectFill(NSMakeRect(MARGIN + self.dst.x * TILE_SIZE, MARGIN + self.dst.y * TILE_SIZE, TILE_SIZE, TILE_SIZE));
+		case 1:
+			NSRectFill(NSMakeRect(MARGIN + self.src.x * TILE_SIZE, MARGIN + self.src.y * TILE_SIZE, TILE_SIZE, TILE_SIZE));
+		default:
+			break;
+	}
 }
 
 - (void)mouseUp:(NSEvent*)event {
-	int x = (event.locationInWindow.x - 20) / 20;
-	int y = (event.locationInWindow.y - 20) / 20;
+	int x = (event.locationInWindow.x - MARGIN) / TILE_SIZE;
+	int y = (event.locationInWindow.y - MARGIN) / TILE_SIZE;
 	switch (self.clickedSquare) {
 		case 0:
 			self.src = (Square) { x, y };
@@ -77,7 +96,7 @@
 		default:
 			self.shot = (Square) { x, y };
 			if (amazons_move(&_board, &_src, &_dst)) {
-				if (amazons_shoot(&_board, &_src, &_dst)) {
+				if (amazons_shoot(&_board, &_dst, &_shot)) {
 					swapPlayer(&_currentPlayer);
 				} else {
 					amazons_move(&_board, &_dst, &_src);
@@ -86,6 +105,7 @@
 			break;
 	}
 	self.clickedSquare = (self.clickedSquare + 1) % 3;
+	[self setNeedsDisplay:YES];
 }
 
 @end

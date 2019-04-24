@@ -19,11 +19,16 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //  See README and LICENSE for more details
 
+#define MARGIN 30
+#define TILE_SIZE 40
+
 #import <Cocoa/Cocoa.h>
 
 #include "libamazons.h"
 
 @interface GameView : NSView
+
+@property (retain) NSImage *whitePlayer, *blackPlayer, *occupied;
 
 @property (assign) BoardState board;
 @property (assign) SquareState currentPlayer;
