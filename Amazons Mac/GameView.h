@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  GameView.h
 //  Amazons Mac
 //
 //  Created by Alessandro Vinciguerra on 2019-04-24.
@@ -21,6 +21,12 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface ViewController : NSViewController
+#include "libamazons.h"
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface GameView : NSView
 
 @end
+
+NS_ASSUME_NONNULL_END

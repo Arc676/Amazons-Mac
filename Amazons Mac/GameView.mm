@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  GameView.m
 //  Amazons Mac
 //
 //  Created by Alessandro Vinciguerra on 2019-04-24.
@@ -19,8 +19,11 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //  See README and LICENSE for more details
 
-#import <Cocoa/Cocoa.h>
+#import "GameView.h"
 
-@interface ViewController : NSViewController
+@implementation GameView
+
+- (void)drawRect:(NSRect)rect {
+}
 
 @end
