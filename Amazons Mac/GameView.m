@@ -32,6 +32,7 @@
 	};
 	boardstate_init(&_board, 4, 4, 10, 10, wpos, bpos);
 	self.clickedSquare = 0;
+	self.currentPlayer = WHITE;
 	self.whitePlayer = [NSImage imageNamed:@"P1.png"];
 	self.blackPlayer = [NSImage imageNamed:@"P2.png"];
 	self.occupied = [NSImage imageNamed:@"Occupied.png"];
@@ -71,14 +72,22 @@
 			}
 		}
 	}
-	[[NSColor greenColor] set];
 	switch (self.clickedSquare) {
 		case 2:
+			[[NSColor redColor] set];
 			NSRectFill(NSMakeRect(MARGIN + self.dst.x * TILE_SIZE, MARGIN + self.dst.y * TILE_SIZE, TILE_SIZE, TILE_SIZE));
 		case 1:
+			[[NSColor greenColor] set];
 			NSRectFill(NSMakeRect(MARGIN + self.src.x * TILE_SIZE, MARGIN + self.src.y * TILE_SIZE, TILE_SIZE, TILE_SIZE));
 		default:
 			break;
+	}
+	if (!playerHasValidMove(&_board, _currentPlayer)) {
+		if (self.currentPlayer == WHITE) {
+			[@"Black wins!" drawAtPoint:NSMakePoint(10, 10) withAttributes:nil];
+		} else {
+			[@"White wins!" drawAtPoint:NSMakePoint(10, 0) withAttributes:nil];
+		}
 	}
 }
 
@@ -95,7 +104,7 @@
 		case 2:
 		default:
 			self.shot = (Square) { x, y };
-			if (amazons_move(&_board, &_src, &_dst)) {
+			if (self.board.board[self.src.x * self.board.boardWidth + self.src.y] == self.currentPlayer && amazons_move(&_board, &_src, &_dst)) {
 				if (amazons_shoot(&_board, &_dst, &_shot)) {
 					swapPlayer(&_currentPlayer);
 				} else {
