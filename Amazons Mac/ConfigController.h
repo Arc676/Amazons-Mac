@@ -1,5 +1,5 @@
 //
-//  ViewController.m
+//  ConfigController.h
 //  Amazons Mac
 //
 //  Created by Alessandro Vinciguerra on 2019-04-24.
@@ -19,8 +19,8 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //  See README and LICENSE for more details
 
-#import "ViewController.h"
+#import <Cocoa/Cocoa.h>
 
-@implementation ViewController
+@interface ConfigController : NSViewController
 
 @end
