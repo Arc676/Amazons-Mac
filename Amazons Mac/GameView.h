@@ -30,6 +30,11 @@
 
 @property (retain) NSImage *whitePlayer, *blackPlayer, *occupied;
 
+@property (assign) BOOL isSettingUp;
+@property (assign) int wp, bp, bw, bh;
+@property (assign) int pickedPositions;
+@property (assign) Square* initialPositions;
+
 @property (assign) BoardState board;
 @property (assign) SquareState currentPlayer;
 @property (assign) Square src, dst, shot;
@@ -37,6 +42,12 @@
 
 - (void)newStandardGame:(NSNotification*)notif;
 - (void)newCustomGame:(NSNotification*)notif;
+
+- (void)drawSetup;
+- (void)drawGame;
+
+- (void)pickInitialPosAtX:(int)x Y:(int)y;
+- (void)selectSquareAtX:(int)x Y:(int)y;
 
 + (NSNotificationName)standardNotifName;
 + (NSNotificationName)customNotifName;

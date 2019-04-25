@@ -23,4 +23,18 @@
 
 @implementation ConfigController
 
+- (IBAction)confirmGame:(id)sender {
+	[NSNotificationCenter.defaultCenter postNotificationName:[GameView customNotifName]
+													  object:self
+													userInfo:@{
+															   @"WhitePieces" : @([self.whitePieces intValue]),
+															   @"BlackPieces" : @([self.blackPieces intValue]),
+															   @"BoardWidth" : @([self.boardWidth intValue]),
+															   @"BoardHeight" : @([self.boardHeight intValue])
+															   }];
+}
+
+- (IBAction)cancelGame:(id)sender {
+}
+
 @end

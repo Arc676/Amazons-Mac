@@ -391,7 +391,7 @@
         <scene sceneID="P2Z-TM-Ddv">
             <objects>
                 <windowController showSeguePresentationStyle="single" id="GhW-ZV-5w3" sceneMemberID="viewController">
-                    <window key="window" title="New Game" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="4ya-m4-kdv">
+                    <window key="window" title="Configure Game" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="4ya-m4-kdv">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="448" y="288" width="288" height="168"/>
@@ -425,6 +425,10 @@
 Gw
 </string>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="cancelGame:" target="TbP-LK-QmX" id="zki-N5-ycT"/>
+                                    <outlet property="nextKeyView" destination="h7L-uJ-Pum" id="teh-er-Fvl"/>
+                                </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="h7L-uJ-Pum">
                                 <rect key="frame" x="99" y="13" width="175" height="32"/>
@@ -432,42 +436,58 @@ Gw
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="confirmGame:" target="TbP-LK-QmX" id="gnn-6e-6bc"/>
+                                    <outlet property="nextKeyView" destination="JxV-3r-5TB" id="wEb-fn-KWr"/>
+                                </connections>
                             </button>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FQj-Fq-BYf">
                                 <rect key="frame" x="172" y="76" width="96" height="22"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="0vq-zY-OJd">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="10" drawsBackground="YES" id="0vq-zY-OJd">
                                     <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="AMQ-5S-0JC"/>
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <outlet property="nextKeyView" destination="S8s-zN-Fui" id="URu-kK-etJ"/>
+                                </connections>
                             </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="S8s-zN-Fui">
                                 <rect key="frame" x="172" y="51" width="96" height="22"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="jDH-PT-qbt">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="10" drawsBackground="YES" id="jDH-PT-qbt">
                                     <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="h9u-Bh-C7s"/>
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <outlet property="nextKeyView" destination="BjH-qO-VON" id="I4r-23-HRI"/>
+                                </connections>
                             </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9yc-1X-dZ7">
                                 <rect key="frame" x="172" y="101" width="96" height="22"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="S15-hT-KX3">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="4" drawsBackground="YES" id="S15-hT-KX3">
                                     <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="nOB-IB-LwB"/>
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <outlet property="nextKeyView" destination="FQj-Fq-BYf" id="A2S-Ho-91q"/>
+                                </connections>
                             </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JxV-3r-5TB">
                                 <rect key="frame" x="172" y="126" width="96" height="22"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="vj5-dL-N5k">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="4" drawsBackground="YES" id="vj5-dL-N5k">
                                     <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="Xds-ys-lu6"/>
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <outlet property="nextKeyView" destination="9yc-1X-dZ7" id="a6b-h8-r8l"/>
+                                </connections>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1iH-Le-kgn">
                                 <rect key="frame" x="18" y="131" width="148" height="17"/>
@@ -535,6 +555,12 @@ Gw
                             <constraint firstItem="9yc-1X-dZ7" firstAttribute="leading" secondItem="FQj-Fq-BYf" secondAttribute="leading" id="zzE-51-zuK"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="blackPieces" destination="9yc-1X-dZ7" id="HUc-xO-xnJ"/>
+                        <outlet property="boardHeight" destination="S8s-zN-Fui" id="pfS-Qz-2tf"/>
+                        <outlet property="boardWidth" destination="FQj-Fq-BYf" id="rax-BG-GVJ"/>
+                        <outlet property="whitePieces" destination="JxV-3r-5TB" id="S3q-Cc-07c"/>
+                    </connections>
                 </viewController>
                 <customObject id="tS3-31-wvq" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

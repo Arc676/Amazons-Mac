@@ -36,6 +36,7 @@
 	self.blackPlayer = [NSImage imageNamed:@"P2.png"];
 	self.occupied = [NSImage imageNamed:@"Occupied.png"];
 	self.clickedSquare = 0;
+	self.isSettingUp = NO;
 	self.currentPlayer = WHITE;
 	[self newStandardGame:nil];
 
@@ -64,7 +65,14 @@
 }
 
 - (void)newCustomGame:(NSNotification *)notif {
-	//
+	self.isSettingUp = YES;
+	self.pickedPositions = 0;
+	self.wp = [notif.userInfo[@"WhitePieces"] intValue];
+	self.bp = [notif.userInfo[@"BlackPieces"] intValue];
+	self.bw = [notif.userInfo[@"BoardWidth"] intValue];
+	self.bh = [notif.userInfo[@"BoardHeight"] intValue];
+	self.initialPositions = malloc((self.wp + self.bp) * sizeof(Square));
+	[self setNeedsDisplay:YES];
 }
 
 - (BOOL)acceptsFirstMouse:(NSEvent *)event {
@@ -78,6 +86,41 @@
 - (void)drawRect:(NSRect)rect {
 	[[NSColor whiteColor] set];
 	NSRectFill(rect);
+	if (self.isSettingUp) {
+		[self drawSetup];
+	} else {
+		[self drawGame];
+	}
+}
+
+- (void)drawSetup {
+	if (self.pickedPositions < self.wp) {
+		[@"Select initial starting positions for first player" drawAtPoint:NSMakePoint(10, 10) withAttributes:nil];
+	} else {
+		[@"Select initial starting positions for second player" drawAtPoint:NSMakePoint(10, 10) withAttributes:nil];
+	}
+	for (int x = 0; x < self.bw; x++) {
+		for (int y = 0; y < self.bh; y++) {
+			NSRect square = NSMakeRect(MARGIN + x * TILE_SIZE, MARGIN + y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+			if ((x + y) % 2 == 0) {
+				[[NSColor grayColor] set];
+				NSRectFill(square);
+			}
+		}
+	}
+	for (int i = 0; i < self.pickedPositions; i++) {
+		int x = self.initialPositions[i].x;
+		int y = self.initialPositions[i].y;
+		if (i < self.wp) {
+			[[NSColor lightGrayColor] set];
+		} else {
+			[[NSColor blackColor] set];
+		}
+		NSRectFill(NSMakeRect(MARGIN + x * TILE_SIZE, MARGIN + y * TILE_SIZE, TILE_SIZE, TILE_SIZE));
+	}
+}
+
+- (void)drawGame {
 	for (int x = 0; x < self.board.boardWidth; x++) {
 		for (int y = 0; y < self.board.boardHeight; y++) {
 			NSRect square = NSMakeRect(MARGIN + x * TILE_SIZE, MARGIN + y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
@@ -123,6 +166,26 @@
 - (void)mouseUp:(NSEvent*)event {
 	int x = (event.locationInWindow.x - MARGIN) / TILE_SIZE;
 	int y = (event.locationInWindow.y - MARGIN) / TILE_SIZE;
+	if (self.isSettingUp) {
+		[self pickInitialPosAtX:x Y:y];
+	} else {
+		[self selectSquareAtX:x Y:y];
+	}
+	[self setNeedsDisplay:YES];
+}
+
+- (void)pickInitialPosAtX:(int)x Y:(int)y {
+	Square square = (Square) { x, y };
+	self.initialPositions[self.pickedPositions++] = square;
+	if (self.pickedPositions >= self.wp + self.bp) {
+		boardstate_init(&_board, self.wp, self.bp, self.bw, self.bh,
+						self.initialPositions, self.initialPositions + self.wp);
+		free(self.initialPositions);
+		self.isSettingUp = NO;
+	}
+}
+
+- (void)selectSquareAtX:(int)x Y:(int)y {
 	switch (self.clickedSquare) {
 		case 0:
 			if (self.board.board[x * self.board.boardWidth + y] != self.currentPlayer) {
@@ -152,14 +215,17 @@
 			break;
 	}
 	self.clickedSquare = (self.clickedSquare + 1) % 3;
-	[self setNeedsDisplay:YES];
 }
 
 - (void)keyDown:(NSEvent *)event {}
 
 - (void)keyUp:(NSEvent *)event {
 	if (event.keyCode == 53) {
-		self.clickedSquare = 0;
+		if (self.isSettingUp) {
+			self.pickedPositions--;
+		} else {
+			self.clickedSquare = 0;
+		}
 		[self setNeedsDisplay:YES];
 	}
 }

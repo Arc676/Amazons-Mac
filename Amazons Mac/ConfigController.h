@@ -21,6 +21,16 @@
 
 #import <Cocoa/Cocoa.h>
 
+#import "GameView.h"
+
 @interface ConfigController : NSViewController
+
+@property (weak) IBOutlet NSTextField *whitePieces;
+@property (weak) IBOutlet NSTextField *blackPieces;
+@property (weak) IBOutlet NSTextField *boardWidth;
+@property (weak) IBOutlet NSTextField *boardHeight;
+
+- (IBAction)confirmGame:(id)sender;
+- (IBAction)cancelGame:(id)sender;
 
 @end
