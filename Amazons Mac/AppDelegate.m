@@ -23,4 +23,9 @@
 
 @implementation AppDelegate
 
+- (IBAction)newStandardGame:(id)sender {
+	[NSNotificationCenter.defaultCenter postNotificationName:[GameView standardNotifName]
+													  object:nil];
+}
+
 @end

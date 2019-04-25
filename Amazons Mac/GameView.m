@@ -23,7 +23,36 @@
 
 @implementation GameView
 
++ (NSNotificationName)standardNotifName {
+	return @"com.arc676.amazons-mac.newstandardgame";
+}
+
++ (NSNotificationName)customNotifName {
+	return @"com.arc676.amazons-mac.newcustomgame";
+}
+
 - (void)awakeFromNib {
+	self.whitePlayer = [NSImage imageNamed:@"P1.png"];
+	self.blackPlayer = [NSImage imageNamed:@"P2.png"];
+	self.occupied = [NSImage imageNamed:@"Occupied.png"];
+	self.clickedSquare = 0;
+	self.currentPlayer = WHITE;
+	[self newStandardGame:nil];
+
+	[NSNotificationCenter.defaultCenter addObserver:self
+										   selector:@selector(newStandardGame:)
+											   name:[GameView standardNotifName]
+											 object:nil];
+	[NSNotificationCenter.defaultCenter addObserver:self
+										   selector:@selector(newCustomGame:)
+											   name:[GameView customNotifName]
+											 object:nil];
+}
+
+- (void)newStandardGame:(NSNotification*)notif {
+	if (self.board.board) {
+		boardstate_free(&_board);
+	}
 	Square wpos[4] = {
 		{3, 0}, {0, 3}, {0,6}, {3, 9}
 	};
@@ -31,11 +60,11 @@
 		{6, 0}, {9, 3}, {9, 6}, {6, 9}
 	};
 	boardstate_init(&_board, 4, 4, 10, 10, wpos, bpos);
-	self.clickedSquare = 0;
-	self.currentPlayer = WHITE;
-	self.whitePlayer = [NSImage imageNamed:@"P1.png"];
-	self.blackPlayer = [NSImage imageNamed:@"P2.png"];
-	self.occupied = [NSImage imageNamed:@"Occupied.png"];
+	[self setNeedsDisplay:YES];
+}
+
+- (void)newCustomGame:(NSNotification *)notif {
+	//
 }
 
 - (BOOL)acceptsFirstMouse:(NSEvent *)event {
@@ -96,25 +125,43 @@
 	int y = (event.locationInWindow.y - MARGIN) / TILE_SIZE;
 	switch (self.clickedSquare) {
 		case 0:
+			if (self.board.board[x * self.board.boardWidth + y] != self.currentPlayer) {
+				return;
+			}
 			self.src = (Square) { x, y };
 			break;
 		case 1:
-			self.dst = (Square) { x, y };
+		{
+			Square dst = (Square) { x, y };
+			if (isValidMove(&_board, &_src, &dst)) {
+				self.dst = dst;
+			} else {
+				return;
+			}
 			break;
+		}
 		case 2:
 		default:
 			self.shot = (Square) { x, y };
-			if (self.board.board[self.src.x * self.board.boardWidth + self.src.y] == self.currentPlayer && amazons_move(&_board, &_src, &_dst)) {
-				if (amazons_shoot(&_board, &_dst, &_shot)) {
-					swapPlayer(&_currentPlayer);
-				} else {
-					amazons_move(&_board, &_dst, &_src);
-				}
+			if (amazons_move(&_board, &_src, &_dst) && amazons_shoot(&_board, &_dst, &_shot)) {
+				swapPlayer(&_currentPlayer);
+			} else {
+				amazons_move(&_board, &_dst, &_src);
+				return;
 			}
 			break;
 	}
 	self.clickedSquare = (self.clickedSquare + 1) % 3;
 	[self setNeedsDisplay:YES];
+}
+
+- (void)keyDown:(NSEvent *)event {}
+
+- (void)keyUp:(NSEvent *)event {
+	if (event.keyCode == 53) {
+		self.clickedSquare = 0;
+		[self setNeedsDisplay:YES];
+	}
 }
 
 @end

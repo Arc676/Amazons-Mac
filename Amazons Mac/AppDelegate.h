@@ -21,6 +21,10 @@
 
 #import <Cocoa/Cocoa.h>
 
+#import "GameView.h"
+
 @interface AppDelegate : NSObject <NSApplicationDelegate>
+
+- (IBAction)newStandardGame:(id)sender;
 
 @end

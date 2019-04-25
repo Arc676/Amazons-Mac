@@ -35,4 +35,10 @@
 @property (assign) Square src, dst, shot;
 @property (assign) int clickedSquare;
 
+- (void)newStandardGame:(NSNotification*)notif;
+- (void)newCustomGame:(NSNotification*)notif;
+
++ (NSNotificationName)standardNotifName;
++ (NSNotificationName)customNotifName;
+
 @end
