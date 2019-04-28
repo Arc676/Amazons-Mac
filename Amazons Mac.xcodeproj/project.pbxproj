@@ -20,6 +20,7 @@
 		71FCEB0B2270FEB400717E3F /* P2.png in Resources */ = {isa = PBXBuildFile; fileRef = 71FCEB092270FEB400717E3F /* P2.png */; };
 		71FCEB0C2270FEB400717E3F /* P1.png in Resources */ = {isa = PBXBuildFile; fileRef = 71FCEB0A2270FEB400717E3F /* P1.png */; };
 		71FCEB0E2270FFA500717E3F /* Occupied.png in Resources */ = {isa = PBXBuildFile; fileRef = 71FCEB0D2270FFA500717E3F /* Occupied.png */; };
+		71FCEB1122763BAB00717E3F /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71FCEB1022763BAB00717E3F /* GameViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,8 @@
 		71FCEB092270FEB400717E3F /* P2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = P2.png; sourceTree = "<group>"; };
 		71FCEB0A2270FEB400717E3F /* P1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = P1.png; sourceTree = "<group>"; };
 		71FCEB0D2270FFA500717E3F /* Occupied.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Occupied.png; sourceTree = "<group>"; };
+		71FCEB0F22763BAB00717E3F /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		71FCEB1022763BAB00717E3F /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +95,8 @@
 				71FCEAF22270EAB100717E3F /* Amazons_Mac.entitlements */,
 				71FCEB042270EC6600717E3F /* GameView.h */,
 				71FCEB052270EC6600717E3F /* GameView.m */,
+				71FCEB0F22763BAB00717E3F /* GameViewController.h */,
+				71FCEB1022763BAB00717E3F /* GameViewController.m */,
 			);
 			path = "Amazons Mac";
 			sourceTree = "<group>";
@@ -214,6 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71FCEB1122763BAB00717E3F /* GameViewController.m in Sources */,
 				71FCEAE92270EAA800717E3F /* ConfigController.m in Sources */,
 				71FCEAF12270EAB100717E3F /* main.m in Sources */,
 				71FCEB062270EC6600717E3F /* GameView.m in Sources */,

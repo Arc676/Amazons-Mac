@@ -20,6 +20,7 @@
 //  See README and LICENSE for more details
 
 #import "GameView.h"
+#import "GameViewController.h"
 
 @implementation GameView
 
@@ -166,8 +167,11 @@
 }
 
 - (void)mouseUp:(NSEvent*)event {
-	int x = (event.locationInWindow.x - MARGIN) / TILE_SIZE;
-	int y = (event.locationInWindow.y - MARGIN) / TILE_SIZE;
+	NSPoint scrollOrigin = [self.controller getScrollPosition];
+	NSPoint adjustedPoint = NSMakePoint(event.locationInWindow.x + scrollOrigin.x,
+										event.locationInWindow.y + scrollOrigin.y);
+	int x = (adjustedPoint.x - MARGIN) / TILE_SIZE;
+	int y = (adjustedPoint.y - MARGIN) / TILE_SIZE;
 	if (self.isSettingUp) {
 		[self pickInitialPosAtX:x Y:y];
 	} else {

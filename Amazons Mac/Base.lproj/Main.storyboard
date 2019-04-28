@@ -567,10 +567,10 @@ Gw
             </objects>
             <point key="canvasLocation" x="995" y="-226"/>
         </scene>
-        <!--View Controller-->
+        <!--Game View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="GameViewController" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -600,6 +600,10 @@ Gw
                             </scrollView>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="gameView" destination="ycG-ME-uCi" id="hsa-cr-op9"/>
+                        <outlet property="scrollView" destination="hdH-QD-Ztp" id="VIR-It-kKt"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

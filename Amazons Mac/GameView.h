@@ -24,10 +24,13 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class GameViewController;
+
 #include "libamazons.h"
 
 @interface GameView : NSView
 
+@property (retain) GameViewController* controller;
 @property (retain) NSImage *whitePlayer, *blackPlayer, *occupied;
 
 @property (assign) BOOL isSettingUp;
