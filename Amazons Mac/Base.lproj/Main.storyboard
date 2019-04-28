@@ -373,8 +373,9 @@
                     <window key="window" title="Game of the Amazons" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="597" y="263" width="460" height="500"/>
+                        <rect key="contentRect" x="597" y="263" width="480" height="480"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <value key="minSize" type="size" width="480" height="480"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
@@ -571,35 +572,29 @@ Gw
             <objects>
                 <viewController id="XfG-lQ-9wD" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="460" height="500"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdH-QD-Ztp">
-                                <rect key="frame" x="0.0" y="0.0" width="460" height="500"/>
+                            <scrollView autoresizesSubviews="NO" fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="hdH-QD-Ztp">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
-                                <clipView key="contentView" ambiguous="YES" id="dJR-2e-Huy">
-                                    <rect key="frame" x="1" y="1" width="443" height="483"/>
+                                <clipView key="contentView" autoresizesSubviews="NO" ambiguous="YES" id="dJR-2e-Huy">
+                                    <rect key="frame" x="1" y="1" width="478" height="478"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <view fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ycG-ME-uCi">
-                                            <rect key="frame" x="0.0" y="0.0" width="428" height="468"/>
+                                        <view autoresizesSubviews="NO" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ycG-ME-uCi" customClass="GameView">
+                                            <rect key="frame" x="0.0" y="0.0" width="460" height="460"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <subviews>
-                                                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6lP-UE-Edj" customClass="GameView">
-                                                    <rect key="frame" x="0.0" y="0.0" width="452" height="500"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
-                                                </customView>
-                                            </subviews>
                                         </view>
                                     </subviews>
                                 </clipView>
                                 <edgeInsets key="contentInsets" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
-                                <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="55u-k0-gwV">
-                                    <rect key="frame" x="1" y="484" width="443" height="15"/>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="55u-k0-gwV">
+                                    <rect key="frame" x="1" y="444" width="443" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="JAD-Na-FaE">
-                                    <rect key="frame" x="444" y="1" width="15" height="483"/>
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="JAD-Na-FaE">
+                                    <rect key="frame" x="464" y="1" width="15" height="458"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -608,7 +603,7 @@ Gw
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="716" y="250"/>
+            <point key="canvasLocation" x="716" y="230"/>
         </scene>
     </scenes>
 </document>

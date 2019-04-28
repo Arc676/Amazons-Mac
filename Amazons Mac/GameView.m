@@ -61,6 +61,7 @@
 		{6, 0}, {9, 3}, {9, 6}, {6, 9}
 	};
 	boardstate_init(&_board, 4, 4, 10, 10, wpos, bpos);
+	[self setFrameSize:NSMakeSize(460, 460)];
 	[self setNeedsDisplay:YES];
 }
 
@@ -72,6 +73,7 @@
 	self.bw = [notif.userInfo[@"BoardWidth"] intValue];
 	self.bh = [notif.userInfo[@"BoardHeight"] intValue];
 	self.initialPositions = malloc((self.wp + self.bp) * sizeof(Square));
+	[self setFrameSize:NSMakeSize(2 * MARGIN + self.bw * TILE_SIZE, 2 * MARGIN + self.bh * TILE_SIZE)];
 	[self setNeedsDisplay:YES];
 }
 
@@ -176,6 +178,11 @@
 
 - (void)pickInitialPosAtX:(int)x Y:(int)y {
 	Square square = (Square) { x, y };
+	for (int i = 0; i < self.pickedPositions; i++) {
+		if (self.initialPositions[i].x == x && self.initialPositions[i].y == y) {
+			return;
+		}
+	}
 	self.initialPositions[self.pickedPositions++] = square;
 	if (self.pickedPositions >= self.wp + self.bp) {
 		boardstate_init(&_board, self.wp, self.bp, self.bw, self.bh,
