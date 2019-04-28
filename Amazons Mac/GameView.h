@@ -32,6 +32,7 @@
 
 @property (retain) GameViewController* controller;
 @property (retain) NSImage *whitePlayer, *blackPlayer, *occupied;
+@property (retain) NSAlert *whiteWins, *blackWins;
 
 @property (assign) BOOL isSettingUp;
 @property (assign) int wp, bp, bw, bh;
@@ -39,7 +40,7 @@
 @property (assign) Square* initialPositions;
 
 @property (assign) BoardState board;
-@property (assign) SquareState currentPlayer;
+@property (assign) SquareState currentPlayer, winner;
 @property (assign) Square src, dst, shot;
 @property (assign) int clickedSquare;
 

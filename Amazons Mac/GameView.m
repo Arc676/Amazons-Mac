@@ -39,7 +39,16 @@
 	self.clickedSquare = 0;
 	self.isSettingUp = NO;
 	self.currentPlayer = WHITE;
+	self.winner = EMPTY;
 	[self newStandardGame:nil];
+
+	self.whiteWins = [[NSAlert alloc] init];
+	self.whiteWins.messageText = @"Game Over";
+	self.whiteWins.informativeText = @"White wins!";
+
+	self.blackWins = [[NSAlert alloc] init];
+	self.blackWins.messageText = @"Game Over";
+	self.blackWins.informativeText = @"Black wins!";
 
 	[NSNotificationCenter.defaultCenter addObserver:self
 										   selector:@selector(newStandardGame:)
@@ -74,7 +83,11 @@
 	self.bw = [notif.userInfo[@"BoardWidth"] intValue];
 	self.bh = [notif.userInfo[@"BoardHeight"] intValue];
 	self.initialPositions = malloc((self.wp + self.bp) * sizeof(Square));
-	[self setFrameSize:NSMakeSize(2 * MARGIN + self.bw * TILE_SIZE, 2 * MARGIN + self.bh * TILE_SIZE)];
+	NSSize size = NSMakeSize(2 * MARGIN + self.bw * TILE_SIZE, 2 * MARGIN + self.bh * TILE_SIZE);
+	if (size.width * size.height < 460 * 460) {
+		size = NSMakeSize(460, 460);
+	}
+	[self setFrameSize:size];
 	[self setNeedsDisplay:YES];
 }
 
@@ -157,12 +170,10 @@
 		default:
 			break;
 	}
-	if (!playerHasValidMove(&_board, _currentPlayer)) {
-		if (self.currentPlayer == WHITE) {
-			[@"Black wins!" drawAtPoint:NSMakePoint(10, 10) withAttributes:nil];
-		} else {
-			[@"White wins!" drawAtPoint:NSMakePoint(10, 0) withAttributes:nil];
-		}
+	if (self.winner == WHITE) {
+		[@"White wins!" drawAtPoint:NSMakePoint(10, 0) withAttributes:nil];
+	} else if (self.winner == BLACK) {
+		[@"Black wins!" drawAtPoint:NSMakePoint(10, 10) withAttributes:nil];
 	}
 }
 
@@ -219,6 +230,15 @@
 			self.shot = (Square) { x, y };
 			if (amazons_move(&_board, &_src, &_dst) && amazons_shoot(&_board, &_dst, &_shot)) {
 				swapPlayer(&_currentPlayer);
+				if (!playerHasValidMove(&_board, _currentPlayer)) {
+					self.winner = self.currentPlayer;
+					swapPlayer(&_winner);
+					if (self.winner == WHITE) {
+						[self.whiteWins runModal];
+					} else {
+						[self.blackWins runModal];
+					}
+				}
 			} else {
 				amazons_move(&_board, &_dst, &_src);
 				return;
