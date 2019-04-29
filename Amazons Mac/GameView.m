@@ -74,7 +74,7 @@
 		{6, 0}, {9, 3}, {9, 6}, {6, 9}
 	};
 	boardstate_init(&_board, 4, 4, 10, 10, wpos, bpos);
-	[self.controller setHintText:@"White to move"];
+	[self.controller setHintText:@"Bows to move"];
 	[self setNeedsDisplay:YES];
 }
 
@@ -198,7 +198,7 @@
 						self.initialPositions, self.initialPositions + self.wp);
 		free(self.initialPositions);
 		self.isSettingUp = NO;
-		[self.controller setHintText:@"White to move"];
+		[self.controller setHintText:@"Bows to move"];
 	} else {
 		if (self.pickedPositions < self.wp) {
 			[self.controller setHintText:@"Select initial starting positions for first player"];
@@ -233,17 +233,17 @@
 				swapPlayer(&_currentPlayer);
 				if (playerHasValidMove(&_board, _currentPlayer)) {
 					if (self.currentPlayer == WHITE) {
-						[self.controller setHintText:@"White to move"];
+						[self.controller setHintText:@"Bows to move"];
 					} else {
-						[self.controller setHintText:@"Black to move"];
+						[self.controller setHintText:@"Spears to move"];
 					}
 				} else {
 					self.winner = self.currentPlayer;
 					swapPlayer(&_winner);
 					if (self.winner == WHITE) {
-						[self.controller setHintText:@"White wins!"];
+						[self.controller setHintText:@"Bows win!"];
 					} else {
-						[self.controller setHintText:@"Black wins!"];
+						[self.controller setHintText:@"Spears win!"];
 					}
 				}
 			} else {

@@ -32,9 +32,11 @@
 															   @"BoardWidth" : @([self.boardWidth intValue]),
 															   @"BoardHeight" : @([self.boardHeight intValue])
 															   }];
+	[self.view.window close];
 }
 
 - (IBAction)cancelGame:(id)sender {
+	[self.view.window close];
 }
 
 @end

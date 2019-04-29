@@ -491,7 +491,7 @@ Gw
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1iH-Le-kgn">
                                 <rect key="frame" x="18" y="131" width="148" height="17"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Number of white pieces" id="etT-Ly-uEa">
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Player 1 Amazons" id="etT-Ly-uEa">
                                     <font key="font" usesAppearanceFont="YES"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -499,7 +499,7 @@ Gw
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="btH-TW-L0d">
                                 <rect key="frame" x="18" y="106" width="148" height="17"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Number of black pieces" id="R6y-3C-7hi">
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Player 2 Amazons" id="R6y-3C-7hi">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -599,7 +599,7 @@ Gw
                             </scrollView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iVY-3N-QBU">
                                 <rect key="frame" x="18" y="15" width="92" height="17"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="White to move" id="WVS-JE-X7l">
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Bows to move" id="WVS-JE-X7l">
                                     <font key="font" usesAppearanceFont="YES"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
