@@ -44,11 +44,14 @@
 @property (assign) Square src, dst, shot;
 @property (assign) int clickedSquare;
 
+- (void)newGame;
 - (void)newStandardGame:(NSNotification*)notif;
 - (void)newCustomGame:(NSNotification*)notif;
 
 - (void)drawSetup;
 - (void)drawGame;
+
+- (NSRect)getBoardSquareAtX:(int)x Y:(int)y;
 
 - (void)pickInitialPosAtX:(int)x Y:(int)y;
 - (void)selectSquareAtX:(int)x Y:(int)y;

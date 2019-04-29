@@ -36,10 +36,7 @@
 	self.whitePlayer = [NSImage imageNamed:@"P1.png"];
 	self.blackPlayer = [NSImage imageNamed:@"P2.png"];
 	self.occupied = [NSImage imageNamed:@"Occupied.png"];
-	self.clickedSquare = 0;
 	self.isSettingUp = NO;
-	self.currentPlayer = WHITE;
-	self.winner = EMPTY;
 	[self newStandardGame:nil];
 
 	self.whiteWins = [[NSAlert alloc] init];
@@ -60,10 +57,21 @@
 											 object:nil];
 }
 
-- (void)newStandardGame:(NSNotification*)notif {
+- (void)newGame {
+	self.currentPlayer = WHITE;
+	self.winner = EMPTY;
+	self.clickedSquare = 0;
 	if (self.board.board) {
 		boardstate_free(&_board);
 	}
+	NSSize size = NSMakeSize(2 * MARGIN + self.bw * TILE_SIZE, 2 * MARGIN + self.bh * TILE_SIZE);
+	if (size.width * size.height < 460 * 460) {
+		size = NSMakeSize(460, 460);
+	}
+	[self setFrameSize:size];
+}
+
+- (void)newStandardGame:(NSNotification*)notif {
 	Square wpos[4] = {
 		{3, 0}, {0, 3}, {0,6}, {3, 9}
 	};
@@ -71,7 +79,9 @@
 		{6, 0}, {9, 3}, {9, 6}, {6, 9}
 	};
 	boardstate_init(&_board, 4, 4, 10, 10, wpos, bpos);
-	[self setFrameSize:NSMakeSize(460, 460)];
+	self.bh = 10;
+	self.bw = 10;
+	[self newGame];
 	[self setNeedsDisplay:YES];
 }
 
@@ -83,11 +93,7 @@
 	self.bw = [notif.userInfo[@"BoardWidth"] intValue];
 	self.bh = [notif.userInfo[@"BoardHeight"] intValue];
 	self.initialPositions = malloc((self.wp + self.bp) * sizeof(Square));
-	NSSize size = NSMakeSize(2 * MARGIN + self.bw * TILE_SIZE, 2 * MARGIN + self.bh * TILE_SIZE);
-	if (size.width * size.height < 460 * 460) {
-		size = NSMakeSize(460, 460);
-	}
-	[self setFrameSize:size];
+	[self newGame];
 	[self setNeedsDisplay:YES];
 }
 
@@ -97,6 +103,10 @@
 
 - (BOOL)acceptsFirstResponder {
 	return YES;
+}
+
+- (NSRect)getBoardSquareAtX:(int)x Y:(int)y {
+	return NSMakeRect(MARGIN + x * TILE_SIZE, MARGIN + y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
 }
 
 - (void)drawRect:(NSRect)rect {
@@ -117,7 +127,7 @@
 	}
 	for (int x = 0; x < self.bw; x++) {
 		for (int y = 0; y < self.bh; y++) {
-			NSRect square = NSMakeRect(MARGIN + x * TILE_SIZE, MARGIN + y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+			NSRect square = [self getBoardSquareAtX:x Y:y];
 			if ((x + y) % 2 == 0) {
 				[[NSColor grayColor] set];
 				NSRectFill(square);
@@ -132,14 +142,14 @@
 		} else {
 			[[NSColor blackColor] set];
 		}
-		NSRectFill(NSMakeRect(MARGIN + x * TILE_SIZE, MARGIN + y * TILE_SIZE, TILE_SIZE, TILE_SIZE));
+		NSRectFill([self getBoardSquareAtX:x Y:y]);
 	}
 }
 
 - (void)drawGame {
 	for (int x = 0; x < self.board.boardWidth; x++) {
 		for (int y = 0; y < self.board.boardHeight; y++) {
-			NSRect square = NSMakeRect(MARGIN + x * TILE_SIZE, MARGIN + y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+			NSRect square = [self getBoardSquareAtX:x Y:y];
 			if ((x + y) % 2 == 0) {
 				[[NSColor grayColor] set];
 				NSRectFill(square);
@@ -163,10 +173,10 @@
 	switch (self.clickedSquare) {
 		case 2:
 			[[NSColor redColor] set];
-			NSRectFill(NSMakeRect(MARGIN + self.dst.x * TILE_SIZE, MARGIN + self.dst.y * TILE_SIZE, TILE_SIZE, TILE_SIZE));
+			NSRectFill([self getBoardSquareAtX:self.dst.x Y:self.dst.y]);
 		case 1:
 			[[NSColor greenColor] set];
-			NSRectFill(NSMakeRect(MARGIN + self.src.x * TILE_SIZE, MARGIN + self.src.y * TILE_SIZE, TILE_SIZE, TILE_SIZE));
+			NSRectFill([self getBoardSquareAtX:self.src.x Y:self.src.y]);
 		default:
 			break;
 	}
