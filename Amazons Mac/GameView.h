@@ -32,7 +32,6 @@
 
 @property (retain) GameViewController* controller;
 @property (retain) NSImage *whitePlayer, *blackPlayer, *occupied;
-@property (retain) NSAlert *whiteWins, *blackWins;
 
 @property (assign) BOOL isSettingUp;
 @property (assign) int wp, bp, bw, bh;

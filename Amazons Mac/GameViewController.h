@@ -26,7 +26,10 @@
 
 @property (weak) IBOutlet NSScrollView *scrollView;
 @property (weak) IBOutlet GameView *gameView;
+@property (weak) IBOutlet NSTextField *gameLabel;
 
 - (NSPoint)getScrollPosition;
+
+- (void)setHintText:(NSString*)text;
 
 @end

@@ -39,14 +39,6 @@
 	self.isSettingUp = NO;
 	[self newStandardGame:nil];
 
-	self.whiteWins = [[NSAlert alloc] init];
-	self.whiteWins.messageText = @"Game Over";
-	self.whiteWins.informativeText = @"White wins!";
-
-	self.blackWins = [[NSAlert alloc] init];
-	self.blackWins.messageText = @"Game Over";
-	self.blackWins.informativeText = @"Black wins!";
-
 	[NSNotificationCenter.defaultCenter addObserver:self
 										   selector:@selector(newStandardGame:)
 											   name:[GameView standardNotifName]
@@ -72,6 +64,9 @@
 }
 
 - (void)newStandardGame:(NSNotification*)notif {
+	self.bh = 10;
+	self.bw = 10;
+	[self newGame];
 	Square wpos[4] = {
 		{3, 0}, {0, 3}, {0,6}, {3, 9}
 	};
@@ -79,21 +74,20 @@
 		{6, 0}, {9, 3}, {9, 6}, {6, 9}
 	};
 	boardstate_init(&_board, 4, 4, 10, 10, wpos, bpos);
-	self.bh = 10;
-	self.bw = 10;
-	[self newGame];
+	[self.controller setHintText:@"White to move"];
 	[self setNeedsDisplay:YES];
 }
 
 - (void)newCustomGame:(NSNotification *)notif {
+	self.bw = [notif.userInfo[@"BoardWidth"] intValue];
+	self.bh = [notif.userInfo[@"BoardHeight"] intValue];
+	[self newGame];
 	self.isSettingUp = YES;
 	self.pickedPositions = 0;
 	self.wp = [notif.userInfo[@"WhitePieces"] intValue];
 	self.bp = [notif.userInfo[@"BlackPieces"] intValue];
-	self.bw = [notif.userInfo[@"BoardWidth"] intValue];
-	self.bh = [notif.userInfo[@"BoardHeight"] intValue];
 	self.initialPositions = malloc((self.wp + self.bp) * sizeof(Square));
-	[self newGame];
+	[self.controller setHintText:@"Select initial starting positions for first player"];
 	[self setNeedsDisplay:YES];
 }
 
@@ -120,11 +114,6 @@
 }
 
 - (void)drawSetup {
-	if (self.pickedPositions < self.wp) {
-		[@"Select initial starting positions for first player" drawAtPoint:NSMakePoint(10, 10) withAttributes:nil];
-	} else {
-		[@"Select initial starting positions for second player" drawAtPoint:NSMakePoint(10, 10) withAttributes:nil];
-	}
 	for (int x = 0; x < self.bw; x++) {
 		for (int y = 0; y < self.bh; y++) {
 			NSRect square = [self getBoardSquareAtX:x Y:y];
@@ -180,11 +169,6 @@
 		default:
 			break;
 	}
-	if (self.winner == WHITE) {
-		[@"White wins!" drawAtPoint:NSMakePoint(10, 0) withAttributes:nil];
-	} else if (self.winner == BLACK) {
-		[@"Black wins!" drawAtPoint:NSMakePoint(10, 10) withAttributes:nil];
-	}
 }
 
 - (void)mouseUp:(NSEvent*)event {
@@ -214,6 +198,13 @@
 						self.initialPositions, self.initialPositions + self.wp);
 		free(self.initialPositions);
 		self.isSettingUp = NO;
+		[self.controller setHintText:@"White to move"];
+	} else {
+		if (self.pickedPositions < self.wp) {
+			[self.controller setHintText:@"Select initial starting positions for first player"];
+		} else {
+			[self.controller setHintText:@"Select initial starting positions for second player"];
+		}
 	}
 }
 
@@ -240,13 +231,19 @@
 			self.shot = (Square) { x, y };
 			if (amazons_move(&_board, &_src, &_dst) && amazons_shoot(&_board, &_dst, &_shot)) {
 				swapPlayer(&_currentPlayer);
-				if (!playerHasValidMove(&_board, _currentPlayer)) {
+				if (playerHasValidMove(&_board, _currentPlayer)) {
+					if (self.currentPlayer == WHITE) {
+						[self.controller setHintText:@"White to move"];
+					} else {
+						[self.controller setHintText:@"Black to move"];
+					}
+				} else {
 					self.winner = self.currentPlayer;
 					swapPlayer(&_winner);
 					if (self.winner == WHITE) {
-						[self.whiteWins runModal];
+						[self.controller setHintText:@"White wins!"];
 					} else {
-						[self.blackWins runModal];
+						[self.controller setHintText:@"Black wins!"];
 					}
 				}
 			} else {

@@ -29,7 +29,14 @@
 }
 
 - (NSPoint)getScrollPosition {
-	return self.scrollView.documentVisibleRect.origin;
+	NSPoint scrollOrigin = self.scrollView.documentVisibleRect.origin;
+	NSPoint uiOffset = self.scrollView.frame.origin;
+	return NSMakePoint(scrollOrigin.x - uiOffset.x,
+					   scrollOrigin.y - uiOffset.y);
+}
+
+- (void)setHintText:(NSString*)str {
+	[self.gameLabel setStringValue:str];
 }
 
 @end

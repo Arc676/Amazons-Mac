@@ -373,9 +373,8 @@
                     <window key="window" title="Game of the Amazons" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="597" y="263" width="480" height="480"/>
+                        <rect key="contentRect" x="597" y="263" width="480" height="520"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-                        <value key="minSize" type="size" width="480" height="480"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
@@ -572,21 +571,21 @@ Gw
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="GameViewController" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="520"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView autoresizesSubviews="NO" fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="hdH-QD-Ztp">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
-                                <clipView key="contentView" autoresizesSubviews="NO" ambiguous="YES" id="dJR-2e-Huy">
+                            <scrollView autoresizesSubviews="NO" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="hdH-QD-Ztp">
+                                <rect key="frame" x="0.0" y="40" width="480" height="480"/>
+                                <clipView key="contentView" autoresizesSubviews="NO" id="dJR-2e-Huy">
                                     <rect key="frame" x="1" y="1" width="478" height="478"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <view autoresizesSubviews="NO" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ycG-ME-uCi" customClass="GameView">
                                             <rect key="frame" x="0.0" y="0.0" width="460" height="460"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <autoresizingMask key="autoresizingMask"/>
                                         </view>
                                     </subviews>
+                                    <edgeInsets key="contentInsets" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                                 </clipView>
                                 <edgeInsets key="contentInsets" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="55u-k0-gwV">
@@ -598,9 +597,27 @@ Gw
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iVY-3N-QBU">
+                                <rect key="frame" x="18" y="15" width="92" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="White to move" id="WVS-JE-X7l">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="iVY-3N-QBU" firstAttribute="top" secondItem="hdH-QD-Ztp" secondAttribute="bottom" constant="8" symbolic="YES" id="2a9-8G-bbW"/>
+                            <constraint firstItem="iVY-3N-QBU" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="At1-it-u52"/>
+                            <constraint firstItem="hdH-QD-Ztp" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="Ez3-eX-bue"/>
+                            <constraint firstAttribute="trailing" secondItem="hdH-QD-Ztp" secondAttribute="trailing" id="QBJ-CR-ke0"/>
+                            <constraint firstItem="hdH-QD-Ztp" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="YKG-Hd-m1U"/>
+                            <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="iVY-3N-QBU" secondAttribute="trailing" constant="372" id="dXS-MJ-VgX"/>
+                            <constraint firstAttribute="bottom" secondItem="iVY-3N-QBU" secondAttribute="bottom" constant="15" id="xIP-tq-j7X"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="gameLabel" destination="iVY-3N-QBU" id="fkw-GR-1s3"/>
                         <outlet property="gameView" destination="ycG-ME-uCi" id="hsa-cr-op9"/>
                         <outlet property="scrollView" destination="hdH-QD-Ztp" id="VIR-It-kKt"/>
                     </connections>
