@@ -13,11 +13,14 @@ The standard initial configuration is a 10x10 board, but the game can be set up 
 Player 1's Amazons are represented as bows. Player 2's Amazons are represented as spears. The first move is always made by Player 1.
 
 To make a move, three squares need to be clicked in order:
-1) The Amazon to move
-2) The destination square
-3) The square to which to shoot the arrow
+1) The Amazon to move (highlighted in green)
+2) The destination square (highlighted in red)
+3) The square to which to shoot the arrow (will not be highlighted; the turn will be passed to the other player)
 
-You can press ESC before shooting the arrow to undo your selection(s) and pick different squares.
+You can press ESC before shooting the arrow to undo your selection(s) and pick different squares. At each of the above steps, the following selections are invalid and will have no effect:
+1) Clicking a square that is not currently occupied by an Amazon controlled by the current player
+2) Clicking a square to which the selected Amazon cannot move
+3) Clicking a square to which the selected Amazon cannot shoot an arrow/spear from the destination square
 
 ### Custom configurations
 

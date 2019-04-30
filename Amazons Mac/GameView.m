@@ -35,6 +35,9 @@
 - (void)awakeFromNib {
 	self.whitePlayer = [NSImage imageNamed:@"P1.png"];
 	self.blackPlayer = [NSImage imageNamed:@"P2.png"];
+
+	self.srcCol = [[NSColor greenColor] colorWithAlphaComponent:0.5f];
+
 	self.occupied = [NSImage imageNamed:@"Occupied.png"];
 	self.isSettingUp = NO;
 	[self newStandardGame:nil];
@@ -164,8 +167,8 @@
 			[[NSColor redColor] set];
 			NSRectFill([self getBoardSquareAtX:self.dst.x Y:self.dst.y]);
 		case 1:
-			[[NSColor greenColor] set];
-			NSRectFill([self getBoardSquareAtX:self.src.x Y:self.src.y]);
+			[self.srcCol set];
+			NSRectFillUsingOperation([self getBoardSquareAtX:self.src.x Y:self.src.y], NSCompositingOperationSourceOver);
 		default:
 			break;
 	}
