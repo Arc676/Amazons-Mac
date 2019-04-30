@@ -2,6 +2,27 @@
 
 A Cocoa frontend for Game of the Amazons using the [Amazons library](https://github.com/Arc676/Amazons). Inspired by [this Numberphile video](https://www.youtube.com/watch?v=kjSOSeRZVNg).
 
+## Rules
+
+Two players move Amazons on a board. The Amazons can move any number of squares in any direction, like queens in chess. After moving, Amazons must shoot an arrow (or, in this implementation, a spear). The arrow can also move in any direction. Amazons and arrows cannot move across squares that are already occupied by another Amazon or arrow. The last player able to make a legal move wins. Equivalently, the first player unable to make a legal move loses.
+
+The standard initial configuration is a 10x10 board, but the game can be set up with any starting configuration. Players can control any number of Amazons and the board can be of any size.
+
+## Controls
+
+Player 1's Amazons are represented as bows. Player 2's Amazons are represented as spears. The first move is always made by Player 1.
+
+To make a move, three squares need to be clicked in order:
+1) The Amazon to move
+2) The destination square
+3) The square to which to shoot the arrow
+
+You can press ESC before shooting the arrow to undo your selection(s) and pick different squares.
+
+### Custom configurations
+
+You can start a game with an arbitrary initial configuration from `File > New Game > Custom Settings` or by pressing ⇧⌘N. Specify the number of Amazons to be controlled by each player and the board size. Once the board has been resized (if necessary) and cleared, click the initial starting positions of the Amazons one at a time. Specify the starting positions for Player 1 first.
+
 ## Licensing
 
-Project available under GPLv3. See `LICENSE` for full license text. See `Credits.rtf` for more details regarding game assets.
+Project available under GPLv3. See `LICENSE` for full license text. Application icon and sprites available under CC BY-NC-SA 4.0, adapted from [CC0 assets by rcorre](https://opengameart.org/content/rpg-itemterraincharacter-sprites-ice-insignia). See `Credits.rtf` for more details.
