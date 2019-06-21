@@ -146,7 +146,7 @@
 				[[NSColor grayColor] set];
 				NSRectFill(square);
 			}
-			switch (self.board.board[x * self.board.boardWidth + y]) {
+			switch (self.board.board[y * self.board.boardWidth + x]) {
 				case WHITE:
 					[self.whitePlayer drawInRect:square];
 					break;
@@ -214,7 +214,7 @@
 - (void)selectSquareAtX:(int)x Y:(int)y {
 	switch (self.clickedSquare) {
 		case 0:
-			if (self.board.board[x * self.board.boardWidth + y] != self.currentPlayer) {
+			if (self.board.board[y * self.board.boardWidth + x] != self.currentPlayer) {
 				return;
 			}
 			self.src = (Square) { x, y };
